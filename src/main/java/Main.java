@@ -1,9 +1,3 @@
-package com.goudbes;
-
-import main.java.com.goudbes.Person;
-import main.java.com.goudbes.ShoppingList;
-import main.java.com.goudbes.ShoppingListItem;
-
 public class Main {
 
     public static void main(String[] args) {

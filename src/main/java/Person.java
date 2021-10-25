@@ -1,4 +1,3 @@
-package main.java.com.goudbes;
 
 public class Person {
     private String name;

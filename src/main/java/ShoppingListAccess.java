@@ -1,5 +1,3 @@
-package main.java.com.goudbes;
-
 public class ShoppingListAccess {
     private ShoppingList shoppingList;
     private Person person;

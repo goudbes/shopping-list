@@ -1,9 +1,4 @@
-package test.java;
-
-import main.java.com.goudbes.Person;
-import main.java.com.goudbes.ShoppingList;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {

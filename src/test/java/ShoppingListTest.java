@@ -1,9 +1,4 @@
-package test.java;
 
-import main.java.com.goudbes.Person;
-import main.java.com.goudbes.ShoppingList;
-import main.java.com.goudbes.ShoppingListAccess;
-import main.java.com.goudbes.ShoppingListItem;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;

@@ -1,5 +1,3 @@
-package main.java.com.goudbes;
-
 
 import java.util.HashSet;
 import java.util.Set;

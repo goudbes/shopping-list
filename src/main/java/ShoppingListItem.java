@@ -1,4 +1,3 @@
-package main.java.com.goudbes;
 
 /**
  * Shopping list item
