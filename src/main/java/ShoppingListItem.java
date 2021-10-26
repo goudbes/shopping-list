@@ -5,12 +5,10 @@
 public class ShoppingListItem {
     private ShoppingList list;
     private String itemName;
-    private int quantity;
     private boolean done;
 
-    public ShoppingListItem(String itemName, int quantity) {
+    public ShoppingListItem(String itemName) {
         this.itemName = itemName;
-        this.quantity = quantity;
         this.list = null;
         done = false;
     }
@@ -31,14 +29,6 @@ public class ShoppingListItem {
         this.itemName = itemName;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public boolean isDone() {
         return done;
     }
@@ -53,7 +43,6 @@ public class ShoppingListItem {
         return "ShoppingListItem{" +
                 "list=" + lst +
                 ", itemName='" + itemName + '\'' +
-                ", quantity=" + quantity +
                 ", done=" + done +
                 '}';
     }

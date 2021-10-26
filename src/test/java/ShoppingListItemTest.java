@@ -14,7 +14,7 @@ class ShoppingListItemTest {
     public void initialize() {
         person = new Person("Mike");
         list = new ShoppingList("Coop", person);
-        item = new ShoppingListItem("Falukorv", 2);
+        item = new ShoppingListItem("Falukorv");
     }
 
     @AfterEach
@@ -52,19 +52,6 @@ class ShoppingListItemTest {
     }
 
     @Test
-    void getQuantity() {
-        list.addShoppingListItem(item);
-        assertEquals(2, item.getQuantity());
-    }
-
-    @Test
-    void setQuantity() {
-        list.addShoppingListItem(item);
-        item.setQuantity(23);
-        assertEquals(23, item.getQuantity());
-    }
-
-    @Test
     void isDone() {
         list.addShoppingListItem(item);
         assertFalse(item.isDone());
@@ -81,6 +68,6 @@ class ShoppingListItemTest {
     void testToString() {
         list.addShoppingListItem(item);
         assertEquals("ShoppingListItem{list=" + list.getName() + ", itemName='" +
-                item.getItemName() + "', quantity=" + item.getQuantity() + ", done=false}", item.toString());
+                item.getItemName() + "', done=false}", item.toString());
     }
 }

@@ -4,8 +4,8 @@ public class Main {
         Person person = new Person("Audrey");
         ShoppingList list = new ShoppingList("Coop", person);
         System.out.println(person);
-        list.addShoppingListItem(new ShoppingListItem("Milk", 2));
-        list.addShoppingListItem(new ShoppingListItem("Bread", 1));
+        list.addShoppingListItem(new ShoppingListItem("Milk"));
+        list.addShoppingListItem(new ShoppingListItem("Bread"));
         list.printShoppingList();
         Person stranger = new Person("Mike");
         System.out.println(stranger);

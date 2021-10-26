@@ -17,7 +17,7 @@ class ShoppingListTest {
     public void initialize() {
         person = new Person("Audrey");
         shoppingList = new ShoppingList("Coop", person);
-        shoppingListItem = new ShoppingListItem("Milk", 2);
+        shoppingListItem = new ShoppingListItem("Milk");
     }
 
     @AfterEach
@@ -50,7 +50,7 @@ class ShoppingListTest {
     @Test
     void size() {
         shoppingList.addShoppingListItem(shoppingListItem);
-        ShoppingListItem shoppingListItemTwo = new ShoppingListItem("Falukorv", 1);
+        ShoppingListItem shoppingListItemTwo = new ShoppingListItem("Falukorv");
         shoppingList.addShoppingListItem(shoppingListItemTwo);
         assertEquals(2, shoppingList.size());
     }
@@ -58,19 +58,17 @@ class ShoppingListTest {
     @Test
     void getNumberOfItemsDone() {
         shoppingList.addShoppingListItem(shoppingListItem);
-        ShoppingListItem shoppingListItemTwo = new ShoppingListItem("Falukorv", 1);
+        ShoppingListItem shoppingListItemTwo = new ShoppingListItem("Falukorv");
         shoppingList.addShoppingListItem(shoppingListItemTwo);
-        if (shoppingList.containsItem(shoppingListItemTwo)) {
-            shoppingListItemTwo.setDone(true);
-            shoppingList.addShoppingListItem(shoppingListItemTwo);
-        }
+        shoppingListItemTwo.setDone(true);
+        shoppingList.addShoppingListItem(shoppingListItemTwo);
         assertEquals(1, shoppingList.getNumberOfItemsDone());
     }
 
     @Test
     void getNumberOfItemsNotDone() {
         shoppingList.addShoppingListItem(shoppingListItem);
-        ShoppingListItem shoppingListItemTwo = new ShoppingListItem("Falukorv", 1);
+        ShoppingListItem shoppingListItemTwo = new ShoppingListItem("Falukorv");
         shoppingList.addShoppingListItem(shoppingListItemTwo);
         assertEquals(2, shoppingList.getNumberOfItemsNotDone());
     }

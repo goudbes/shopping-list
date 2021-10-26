@@ -79,7 +79,7 @@ public class ShoppingList {
     public void printShoppingList() {
         System.out.println("Shopping list: " + getName() + " Contains: " + size() + " items");
         for (ShoppingListItem i : shoppingList) {
-            System.out.println(i.getItemName() + " " + i.getQuantity());
+            System.out.println(i.getItemName());
         }
     }
 
