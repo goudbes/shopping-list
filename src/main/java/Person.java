@@ -1,22 +1,37 @@
+import java.util.HashSet;
+import java.util.Set;
 
 public class Person {
     private String name;
-    private ShoppingList list;
+    private Set<ShoppingList> lists = new HashSet<>();
 
     public Person(String name) {
         this.name = name;
     }
 
     public void addShoppingList(ShoppingList list) {
-        this.list = list;
+        lists.add(list);
+    }
+    public Set<ShoppingList> getShoppingLists() {
+        return lists;
     }
 
-    public ShoppingList getShoppingList() {
-        return list;
+    public void deleteShoppingLists() {
+        lists.clear();
     }
 
-    public void deleteShoppingList() {
-        list = null;
+    public int getShoppingListsNumber() {
+        return lists.size();
+    }
+
+    public boolean deleteShoppingList(String shoppingListName) {
+        ShoppingList lst = null;
+        for (ShoppingList l: lists) {
+            if (l.getName().equals(shoppingListName)) {
+                lst = l;
+            }
+        }
+        return lists.remove(lst);
     }
 
     public String getName() {
@@ -37,7 +52,6 @@ public class Person {
 
     @Override
     public String toString() {
-        String lst = (getShoppingList() == null) ? "has no list" : list.getName() + " Size: " + list.size();
-        return "Person: " + getName() + " List: " + lst;
+        return "Person: " + getName() + " Number of lists: " + lists.size();
     }
 }

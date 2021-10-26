@@ -2,22 +2,25 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
     private Person person;
-    private ShoppingList list;
+    private final Set<ShoppingList> lists = new HashSet<>();
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
         person = new Person("Audrey");
-        list = new ShoppingList("Coop list", person);
+        lists.add(new ShoppingList("Coop", person));
     }
 
     @AfterEach
     public void tearDown() {
         person = null;
-        list = null;
+        lists.clear();
     }
 
     @Test
@@ -36,21 +39,37 @@ class PersonTest {
         assertSame("George", person.getName());
     }
 
-
     @Test
     void addShoppingList() {
-        assertEquals(list, person.getShoppingList());
+        assertEquals(lists, person.getShoppingLists());
     }
 
     @Test
     void getShoppingList() {
-        assertEquals(list, person.getShoppingList());
+        assertEquals(lists, person.getShoppingLists());
     }
 
     @Test
-    void deleteShoppingList() {
-        person.deleteShoppingList();
-        assertNull(person.getShoppingList());
+    void deleteShoppingLists() {
+        person.deleteShoppingLists();
+        assertTrue(person.getShoppingListsNumber() == 0);
+    }
+
+    @Test
+    void getShoppingListsNumber() {
+        assertTrue(person.getShoppingListsNumber() == 1);
+    }
+
+    @Test
+    void equals() {
+        assertTrue(person.equals(person));
+        assertFalse(person.equals(null));
+        assertFalse(person.equals(new Person("Mike")));
+    }
+
+    @Test
+    void testToString() {
+        assertEquals("Person: Audrey Number of lists: 1", person.toString());
     }
 
 }

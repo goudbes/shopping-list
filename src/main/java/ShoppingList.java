@@ -15,7 +15,7 @@ public class ShoppingList {
         this.name = name;
         this.owner = owner;
         owner.addShoppingList(this);
-        giveFullAccess(owner);
+        giveAdminAccess(owner);
     }
 
     public ShoppingListAccess getAccessForPerson(Person person) {
@@ -26,10 +26,6 @@ public class ShoppingList {
     }
 
     public boolean removeAccessForPerson(Person person) {
-        if (owner.equals(person)) {
-            System.out.println("Cannot remove access for the owner");
-            return false;
-        }
         ShoppingListAccess a = getAccessForPerson(person);
         if (a != null) {
             return accessList.remove(a);
@@ -37,12 +33,20 @@ public class ShoppingList {
     }
 
     public void giveFullAccess(Person person) {
-        ShoppingListAccess access = new ShoppingListAccess(this, person, true, true);
+        ShoppingListAccess access = new ShoppingListAccess(this, person,
+                true, true, false);
         accessList.add(access);
     }
 
     public void giveReadAccess(Person person) {
-        ShoppingListAccess access = new ShoppingListAccess(this, person, true, false);
+        ShoppingListAccess access = new ShoppingListAccess(this, person,
+                true, false, false);
+        accessList.add(access);
+    }
+
+    public void giveAdminAccess(Person person) {
+        ShoppingListAccess access = new ShoppingListAccess(this, person,
+                true, true, true);
         accessList.add(access);
     }
 
@@ -103,7 +107,6 @@ public class ShoppingList {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public Person getOwner() {
         return owner;

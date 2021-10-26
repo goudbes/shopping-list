@@ -11,7 +11,7 @@ class ShoppingListItemTest {
     private ShoppingListItem item;
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
         person = new Person("Mike");
         list = new ShoppingList("Coop", person);
         item = new ShoppingListItem("Falukorv");

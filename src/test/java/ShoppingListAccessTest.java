@@ -6,12 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ShoppingListAccessTest {
     private Person person;
+    private Person friend;
     private ShoppingList shoppingLst;
     private ShoppingListAccess a;
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
         person = new Person("Audrey");
+        friend = new Person("Mike");
         shoppingLst = new ShoppingList("Shopping", person);
         a = shoppingLst.getAccessForPerson(person);
     }
@@ -67,5 +69,16 @@ class ShoppingListAccessTest {
     void setCanWrite() {
         a.setCanWrite(false);
         assertFalse(a.canWrite());
+    }
+
+    @Test
+    void canDelete() {
+        assertTrue(a.canDelete());
+    }
+
+    @Test
+    void setCanDelete() {
+        a.setCanDelete(false);
+        assertFalse(a.canDelete());
     }
 }

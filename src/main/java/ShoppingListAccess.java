@@ -3,12 +3,14 @@ public class ShoppingListAccess {
     private Person person;
     private boolean canRead;
     private boolean canWrite;
+    private boolean canDelete;
 
-    public ShoppingListAccess(ShoppingList shoppingList, Person person, boolean canRead, boolean canWrite) {
+    public ShoppingListAccess(ShoppingList shoppingList, Person person, boolean canRead, boolean canWrite, boolean canDelete) {
         this.shoppingList = shoppingList;
         this.person = person;
         this.canRead = canRead;
         this.canWrite = canWrite;
+        this.canDelete = canDelete;
     }
 
     public ShoppingList getShoppingList() {
@@ -41,6 +43,14 @@ public class ShoppingListAccess {
 
     public void setCanWrite(boolean canWrite) {
         this.canWrite = canWrite;
+    }
+
+    public boolean canDelete() {
+        return canDelete;
+    }
+
+    public void setCanDelete(boolean canDelete) {
+        this.canDelete = canDelete;
     }
 
 }
