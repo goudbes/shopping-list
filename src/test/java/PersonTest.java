@@ -52,19 +52,19 @@ class PersonTest {
     @Test
     void deleteShoppingLists() {
         person.deleteShoppingLists();
-        assertTrue(person.getShoppingListsNumber() == 0);
+        assertEquals(0, person.getShoppingListsNumber());
     }
 
     @Test
     void getShoppingListsNumber() {
-        assertTrue(person.getShoppingListsNumber() == 1);
+        assertEquals(1, person.getShoppingListsNumber());
     }
 
     @Test
     void equals() {
-        assertTrue(person.equals(person));
-        assertFalse(person.equals(null));
-        assertFalse(person.equals(new Person("Mike")));
+        assertEquals(person, person);
+        assertNotEquals(null, person);
+        assertNotEquals(person, new Person("Mike"));
     }
 
     @Test
