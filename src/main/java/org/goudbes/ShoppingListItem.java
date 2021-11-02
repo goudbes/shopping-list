@@ -1,4 +1,4 @@
-
+package org.goudbes;
 /**
  * Shopping list item
  */

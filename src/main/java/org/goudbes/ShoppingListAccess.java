@@ -1,3 +1,4 @@
+package org.goudbes;
 public class ShoppingListAccess {
     private ShoppingList shoppingList;
     private Person person;

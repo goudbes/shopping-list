@@ -1,3 +1,4 @@
+package org.goudbes;
 import java.util.HashMap;
 import java.util.Map;
 
