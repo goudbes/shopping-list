@@ -14,7 +14,7 @@ class PersonTest {
 
     @BeforeEach
     public void setUp() {
-        person = new Person("Audrey");
+        person = new Person("Audrey", "audrey@mail.com");
         lists.add(new ShoppingList("Coop", person));
     }
 
@@ -65,7 +65,7 @@ class PersonTest {
     void equals() {
         assertEquals(person, person);
         assertNotEquals(null, person);
-        assertNotEquals(person, new Person("Mike"));
+        assertNotEquals(person, new Person("Mike", "mike@mail.com"));
     }
 
     @Test

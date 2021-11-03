@@ -13,7 +13,7 @@ class ShoppingListItemTest {
 
     @BeforeEach
     public void setUp() {
-        person = new Person("Mike");
+        person = new Person("Mike", "mike@mail.com");
         list = new ShoppingList("Coop", person);
         item = new ShoppingListItem("Falukorv");
     }

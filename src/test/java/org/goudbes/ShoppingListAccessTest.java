@@ -13,8 +13,8 @@ class ShoppingListAccessTest {
 
     @BeforeEach
     public void setUp() {
-        person = new Person("Audrey");
-        friend = new Person("Mike");
+        person = new Person("Audrey", "audrey@mail.com");
+        friend = new Person("Mike","mike@mail.com");
         shoppingLst = new ShoppingList("Shopping", person);
         a = shoppingLst.getAccessForPerson(person);
     }
@@ -45,7 +45,7 @@ class ShoppingListAccessTest {
 
     @Test
     void setPerson() {
-        Person stranger = new Person("Jessica");
+        Person stranger = new Person("Jessica","jessica@mail.com");
         a.setPerson(stranger);
         assertEquals(stranger, a.getPerson());
     }

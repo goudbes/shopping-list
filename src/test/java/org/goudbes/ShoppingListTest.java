@@ -15,7 +15,7 @@ class ShoppingListTest {
 
     @BeforeEach
     public void setUp() {
-        person = new Person("Audrey");
+        person = new Person("Audrey","audrey@mail.com");
         shoppingList = new ShoppingList("Coop", person);
         shoppingListItem = new ShoppingListItem("Milk");
     }
@@ -91,7 +91,7 @@ class ShoppingListTest {
 
     @Test
     void setOwner() {
-        Person personTwo = new Person("Mike");
+        Person personTwo = new Person("Mike","mike@mail.com");
         shoppingList.setOwner(personTwo);
         assertEquals(personTwo, shoppingList.getOwner());
     }
@@ -112,7 +112,7 @@ class ShoppingListTest {
 
     @Test
     void getAccessForPerson() {
-        Person stranger = new Person("Mike");
+        Person stranger = new Person("Mike", "mike@mail.com");
         shoppingList.giveFullAccess(stranger);
         ShoppingListAccess a = shoppingList.getAccessForPerson(stranger);
         assertEquals(stranger, a.getPerson());
@@ -120,7 +120,7 @@ class ShoppingListTest {
 
     @Test
     void giveFullAccess() {
-        Person stranger = new Person("Robin");
+        Person stranger = new Person("Robin","robin@mail.com");
         shoppingList.giveFullAccess(stranger);
         ShoppingListAccess a = shoppingList.getAccessForPerson(stranger);
         assertTrue(a.canRead());
@@ -129,7 +129,7 @@ class ShoppingListTest {
 
     @Test
     void giveReadAccess() {
-        Person stranger = new Person("Robin");
+        Person stranger = new Person("Robin","robin@mail.com");
         shoppingList.giveReadAccess(stranger);
         ShoppingListAccess a = shoppingList.getAccessForPerson(stranger);
         assertTrue(a.canRead());
@@ -146,8 +146,8 @@ class ShoppingListTest {
 
     @Test
     void removeAccessForPerson() {
-        Person stranger = new Person("Robin");
-        Person friend = new Person("Jake");
+        Person stranger = new Person("Robin","robin@mail.com");
+        Person friend = new Person("Jake","jake@mail.com");
         shoppingList.giveFullAccess(stranger);
         ShoppingListAccess a = shoppingList.getAccessForPerson(stranger);
         assertTrue(shoppingList.removeAccessForPerson(stranger));

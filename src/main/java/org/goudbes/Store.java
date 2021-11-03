@@ -11,9 +11,9 @@ public class Store {
     }
 
     private Store(){
-        persons.put("Ada", new Person("Ada"));
-        persons.put("Mike", new Person("Mike"));
-        persons.put("Jake", new Person("Jake"));
+        persons.put("Ada", new Person("Ada", "ada@mail.com"));
+        persons.put("Mike", new Person("Mike","mike@mail.com"));
+        persons.put("Jake", new Person("Jake","jake@mail.com"));
     }
 
     public Person getPerson(String name) {
