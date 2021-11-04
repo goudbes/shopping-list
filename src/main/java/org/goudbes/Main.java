@@ -12,12 +12,12 @@ public class Main {
 
     public static void main(String[] args) {
         Person person = new Person("Arthur","arthur@mail.com");
-        Person person_two = new Person("Marjory", "marjory@mail.com");
-        Actions.selectAll();
-        Actions.insert(person);
-        Actions.insert(person_two);
-        Actions.delete(person);
-        Actions.selectAll();
+        Actions.addPerson(person);
+        person.setId(Actions.getPersonId(person));
+        Actions.addShoppingList(new ShoppingList("Arthur's trip", person));
+        Actions.addShoppingList(new ShoppingList("Weekend shopping", person));
+        Actions.printShoppingLists();
+        Actions.deletePerson("Arthur", "arthur@mail.com");
     }
     /*public static final String BASE_URI = "http://localhost:8080/";
 

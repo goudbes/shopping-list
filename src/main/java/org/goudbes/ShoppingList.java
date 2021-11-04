@@ -1,4 +1,5 @@
 package org.goudbes;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -6,6 +7,7 @@ import java.util.Set;
  * Shopping list containing shopping items
  */
 public class ShoppingList {
+    private int id;
     private String name;
     private Person owner;
     private Set<ShoppingListItem> shoppingList = new HashSet<>();
@@ -16,6 +18,12 @@ public class ShoppingList {
         this.owner = owner;
         owner.addShoppingList(this);
         giveAdminAccess(owner);
+    }
+
+    public ShoppingList(String name, Person owner, int id) {
+        this.name = name;
+        this.owner = owner;
+        this.id = id;
     }
 
     public ShoppingListAccess getAccessForPerson(Person person) {
@@ -122,5 +130,13 @@ public class ShoppingList {
 
     public void setShoppingList(Set<ShoppingListItem> shoppingList) {
         this.shoppingList = shoppingList;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
