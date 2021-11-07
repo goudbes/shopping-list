@@ -7,7 +7,7 @@ public class Actions {
 
     private static Connection connect() throws ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
-        String url = "jdbc:sqlite:D:\\Code\\shopping_list.db";
+        String url = "jdbc:sqlite:D:\\Code\\shopping-list\\db\\shopping_list.db";
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url);
