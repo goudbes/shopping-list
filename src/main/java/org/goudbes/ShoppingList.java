@@ -1,29 +1,39 @@
 package org.goudbes;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Shopping list containing shopping items
  */
+@DatabaseTable(tableName = "shopping_lists")
 public class ShoppingList {
+    public static final String SHOPPINGLIST_NAME_FIELD_NAME = "sl_name";
+    public static final String OWNER_ID_FIELD_NAME = "owner_id";
+
+    @DatabaseField(generatedId = true, canBeNull = false)
     private int id;
+
+    @DatabaseField(columnName = SHOPPINGLIST_NAME_FIELD_NAME, uniqueCombo = true, canBeNull = false)
     private String name;
+
+    @DatabaseField(foreign = true, columnName = OWNER_ID_FIELD_NAME, uniqueCombo = true, canBeNull = false)
     private Person owner;
+
     private Set<ShoppingListItem> shoppingList = new HashSet<>();
     private Set<ShoppingListAccess> accessList = new HashSet<>();
+
+    public ShoppingList() {
+    }
 
     public ShoppingList(String name, Person owner) {
         this.name = name;
         this.owner = owner;
         owner.addShoppingList(this);
         giveAdminAccess(owner);
-    }
-
-    public ShoppingList(String name, Person owner, int id) {
-        this.name = name;
-        this.owner = owner;
-        this.id = id;
     }
 
     public ShoppingListAccess getAccessForPerson(Person person) {

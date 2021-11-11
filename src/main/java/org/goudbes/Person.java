@@ -1,23 +1,33 @@
 package org.goudbes;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.util.HashSet;
 import java.util.Set;
 
+@DatabaseTable(tableName = "persons")
 public class Person {
+    public static final String NAME_FIELD_NAME = "person_name";
+    public static final String EMAIL_FIELD_NAME = "email";
+
+    @DatabaseField(generatedId = true, canBeNull = false)
     private int id;
+
+    @DatabaseField(columnName = NAME_FIELD_NAME, canBeNull = false)
     private String name;
+
+    @DatabaseField(columnName = EMAIL_FIELD_NAME, canBeNull = false)
     private String email;
+
     private Set<ShoppingList> lists = new HashSet<>();
+
+    public Person() {
+    }
 
     public Person(String name, String email) {
         this.name = name;
         this.email = email;
-    }
-
-    public Person(String name, String email, int id) {
-        this.name = name;
-        this.email = email;
-        this.id = id;
     }
 
     public void addShoppingList(ShoppingList list) {
