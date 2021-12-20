@@ -17,7 +17,7 @@ public class Person {
     @DatabaseField(columnName = NAME_FIELD_NAME, canBeNull = false)
     private String name;
 
-    @DatabaseField(columnName = EMAIL_FIELD_NAME, canBeNull = false)
+    @DatabaseField(columnName = EMAIL_FIELD_NAME, canBeNull = false, unique = true)
     private String email;
 
     private Set<ShoppingList> lists = new HashSet<>();
